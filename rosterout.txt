@@ -1,0 +1,11 @@
+The number of words that contain the letter e is : 9
+The words that contain the letter e are :
+Edward
+Ankeet
+Sandeep
+Yifei
+Peter
+Sophie
+Meghana
+Shazeda
+Michelle

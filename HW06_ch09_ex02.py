@@ -14,11 +14,24 @@
 # Imports
 
 # Body
+def has_no_e(wordarg):
+    return str(not 'e' in wordarg)+'\n'
+
+def has_no_e_mod(filename):
+    filecheck=open(filename,'r')
+    txt=filecheck.read().split()
+    wordswithoute='The words without e are: \n\n'
+    for wordarg in txt:
+        if not 'e' in wordarg:
+            wordswithoute=wordswithoute+wordarg+'\n'
+    print(wordswithoute)
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+    print(has_no_e('hello'))
+    print(has_no_e('ok'))
+    has_no_e_mod('words.txt')
 
 if __name__ == '__main__':
     main()
