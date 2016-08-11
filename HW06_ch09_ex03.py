@@ -71,26 +71,38 @@ def forbidden_param(filename,strforbid):
             count=count+1
     return count
 
-def recursive_call_for_print_5(filename,chararg):
-    max=0
-    forb=''
-    for charcheck in range(97,122):
-        if chr(charcheck) in chararg:
-            break
-        else:
-            count=forbidden_param(filename,chararg+chr(charcheck))
-            if count > max:
-                max = count
-                forb=chr(charcheck)
-    return forb
 
 def find_five(filename):
-    char1=recursive_call_for_print_5(filename,'')
-    char2=recursive_call_for_print_5(filename,char1)
-    char3=recursive_call_for_print_5(filename,char1+char2)
-    char4=recursive_call_for_print_5(filename,char1+char2+char3)
-    char5=recursive_call_for_print_5(filename,char1+char2+char3+char4)
-    print("the combination of 5 forbidden words that excludes the minimum words is :"+char1+char2+char3+char4+char5)
+    max=0
+    forb=''
+    chararg=''
+    for charcheck1 in range(97,122):
+        chararg=chr(charcheck1)
+        for charcheck2 in range(97,122):
+            if chr(charcheck2) in chararg:
+                break
+            else:
+                chararg+=chr(charcheck2)
+                for charcheck3 in range(97,122):
+                    if chr(charcheck3) in chararg:
+                        break
+                    else:
+                        chararg+=chr(charcheck3)
+                        for charcheck4 in range(97,122):
+                            if chr(charcheck4) in chararg:
+                                break
+                            else:
+                                chararg+=chr(charcheck4)
+                                for charcheck5 in range(97,122):
+                                    if chr(charcheck5) in chararg:
+                                        break
+                                    else:
+                                        chararg+=chr(charcheck5)
+                                        count=forbidden_param(filename,chararg)
+                                        if count > max:
+                                            max = count
+                                            forb=chararg
+    print("the combination of 5 forbidden words that excludes the minimum words is :"+forb)
 
 
 
